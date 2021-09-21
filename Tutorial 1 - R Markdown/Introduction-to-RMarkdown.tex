@@ -1,0 +1,382 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Markdown Tutorial},
+  pdfauthor={Arsh Kumbhat; Vibha Rao; Aditi Singh; Jainil Dharmil Shah; Revendranath T},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Markdown Tutorial}
+\author{Arsh Kumbhat \and Vibha Rao \and Aditi Singh \and Jainil Dharmil
+Shah \and Revendranath T}
+\date{9/20/2021}
+
+\begin{document}
+\maketitle
+
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see \url{http://rmarkdown.rstudio.com}.
+
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+\hypertarget{what-is-r-markdown}{%
+\subsection{What is R Markdown?}\label{what-is-r-markdown}}
+
+Markdown is a lightweight markup language that you can use to add
+formatting elements to plaintext text documents.
+
+\hypertarget{why-use-markdown}{%
+\subsection{Why Use Markdown?}\label{why-use-markdown}}
+
+\begin{itemize}
+\tightlist
+\item
+  Markdown can be used for everything. People use it to create websites,
+  documents, notes, books, presentations, email messages, and technical
+  documentation.
+\item
+  Markdown is portable.
+\item
+  Markdown is platform independent. You can create Markdown-formatted
+  text on any device running any operating system.
+\item
+  Markdown is everywhere. Websites like Reddit and GitHub support
+  Markdown, and lots of desktop and web-based applications support it.
+\end{itemize}
+
+R Markdown is an open-source tool for producing reproducible reports in
+R. It enables you to keep all of your code, results, plots, and writing
+in one place. R Markdown provides an authoring framework for data
+science. You can use a single R Markdown file to both :-
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  save and execute code.
+\item
+  generate high quality reports that can be shared with an audience.
+\end{enumerate}
+
+R Markdown documents are fully reproducible and support dozens of static
+and dynamic output formats.
+
+R Markdown is particularly useful when you are producing a document for
+an audience that is interested in the results from your analysis, but
+not your code.
+
+With R Markdown, you have the option to export your work to numerous
+numerous formats including PDF, Microsoft Word, a slideshow, or an HTML
+document for use in a website.
+
+We'll use the RStudio integrated development environment (IDE) to
+produce our R Markdown reference guide.
+
+\hypertarget{workflow}{%
+\subsection{Workflow:}\label{workflow}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open a new .Rmd File
+\item
+  Write/ Edit your document - add tables, figures, citations, etc.
+\item
+  Knit document to create report - set output formats and options in the
+  YAML header
+\item
+  Save and Render
+\item
+  Share your work(if interested)
+\end{enumerate}
+
+\hypertarget{installing-r-markdown}{%
+\subsubsection{Installing R Markdown:}\label{installing-r-markdown}}
+
+\texttt{install.packages("rmarkdown")}
+
+\hypertarget{install-latex-tinytex-for-pdf-reports}{%
+\subsubsection{Install LaTeX (TinyTeX) for PDF
+reports:}\label{install-latex-tinytex-for-pdf-reports}}
+
+\texttt{tinytex::install\_tinytex()}
+
+\hypertarget{to-uninstall-tinytex-run}{%
+\subsubsection{To uninstall TinyTeX,
+run}\label{to-uninstall-tinytex-run}}
+
+\texttt{tinytex::uninstall\_tinytex()}
+
+When R Markdown is converted to PDF, Pandoc converts Markdown to an
+intermediate LaTeX document first. The R package tinytex has provided
+helper functions to compile LaTeX documents to PDF.
+
+\hypertarget{code-chunks-and-inline-r-code-}{%
+\subsection{Code Chunks and Inline R
+Code:-}\label{code-chunks-and-inline-r-code-}}
+
+A code chunk usually starts with ```\{\} and ends with ```. You can
+write any number of lines of code in it. Inline R code is embedded in
+the narratives of the document using the syntax \texttt{r}
+
+\hypertarget{compile-an-r-markdown-document-}{%
+\subsection{Compile an R Markdown
+Document:-}\label{compile-an-r-markdown-document-}}
+
+\begin{itemize}
+\tightlist
+\item
+  The usual way to compile an R Markdown document is to click the Knit
+  button as shown in Figure 2.1, and the corresponding keyboard shortcut
+  is Ctrl + Shift + K (Cmd + Shift + K on macOS).
+\item
+  RStudio calls the function rmarkdown::render() to render the document
+  in a new R session.
+\item
+  If you want to render a document in the current R session, you can
+  also call rmarkdown::render() by yourself, and pass the path of the
+  Rmd file to this function.
+\item
+  The second argument of this function is the output format, which
+  defaults to the first output format you specify in the YAML metadata
+  (if it is missing, the default is html\_document).
+\item
+  When you have multiple output formats in the metadata, and do not want
+  to use the first one, you can specify the one you want in the second
+  argument, e.g., for an Rmd document foo.Rmd with the metadata:
+\end{itemize}
+
+\hypertarget{you-can-render-it-to-pdf-via}{%
+\subsubsection{You can render it to PDF
+via:}\label{you-can-render-it-to-pdf-via}}
+
+\texttt{\{rmarkdown::render(\textquotesingle{}foo.Rmd\textquotesingle{},\ \textquotesingle{}pdf\_document\textquotesingle{})\}}
+
+\hypertarget{output-formats}{%
+\subsubsection{Output Formats:}\label{output-formats}}
+
+Output formats in R Markdown can be broadly classified into two
+categories:\\
+1.Documents 2.Presentations
+
+\hypertarget{some-common-types-of-documents-that-can-be-created-using-r-markdown}{%
+\subsubsection{Some common types of Documents that can be created using
+R
+Markdown:}\label{some-common-types-of-documents-that-can-be-created-using-r-markdown}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  word\_document
+\item
+  pdf\_document
+\item
+  latex\_document
+\item
+  html\_document
+\item
+  github\_document
+\end{enumerate}
+
+\hypertarget{some-common-types-of-presentations-that-can-be-created-using-r-markdown}{%
+\subsubsection{Some common types of Presentations that can be created
+using R
+Markdown:}\label{some-common-types-of-presentations-that-can-be-created-using-r-markdown}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  powerpoint\_presentation
+\item
+  beamer\_presentation
+\item
+  ioslides\_presentation
+\item
+  slidy\_presentation
+\end{enumerate}
+
+\hypertarget{common-markdown-features}{%
+\subsection{Common Markdown Features:}\label{common-markdown-features}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Text Formats
+\item
+  Lists
+\item
+  Hyperlinks
+\item
+  Mathematical Expressions
+\item
+  Images and Tables with Captions
+\item
+  Templates
+\item
+  Speakers' Notes(Especially when creating presentations)
+\end{enumerate}
+
+\hypertarget{document-elements}{%
+\subsection{Document Elements:}\label{document-elements}}
+
+\hypertarget{a.-insert-page-breaks}{%
+\subsubsection{A.) Insert page breaks:}\label{a.-insert-page-breaks}}
+
+\begin{itemize}
+\tightlist
+\item
+  When you want to break a page, you can insert the command
+  \texttt{\{\textbackslash{}newpage\}} in the document.
+\item
+  It is a LaTeX command, but the rmarkdown package is able to recognize
+  it for both LaTeX output formats and a few non-LaTeX output formats
+  including HTML,5 Word, and ODT.
+\end{itemize}
+
+\textbf{Note} : For HTML output, page breaks only make sense when you
+print the HTML page, otherwise you will not see the page breaks, because
+an HTML page is just a single continuous page.
+
+\hypertarget{b.-combine-words-into-a-comma-separated-phrase}{%
+\subsubsection{B.) Combine words into a comma separated
+phrase:}\label{b.-combine-words-into-a-comma-separated-phrase}}
+
+\begin{itemize}
+\tightlist
+\item
+  The function \texttt{\{knitr::combine\_words()\}} can be used to
+  concatenate words into a phrase regardless of the length of the
+  character vector.
+\item
+  Basically, for a single word, it will just return this word; for two
+  words A and B, it returns ``A and B''; for three or more words, it
+  returns ``A, B, C, \ldots, Y, and Z''.
+\item
+  The function also has a few arguments that can customize the output.
+\end{itemize}
+
+\hypertarget{examples}{%
+\subsubsection{Examples:}\label{examples}}
+
+v \textless- c(``apple'', ``banana'', ``cherry'')
+knitr::combine\_words(v)\\
+\emph{output} : apple, banana, and cherry
+
+knitr::combine\_words(v, before = ```'', after = "`")\\
+\emph{output}: 'apple', `banana', and `cherry'
+
+knitr::combine\_words(v, and = "")\\
+\emph{output}: apple, banana, cherry
+
+knitr::combine\_words(v, sep = " / ``, and =''")\\
+\emph{output}: apple / banana / cherry
+
+knitr::combine\_words(v{[}1{]}) \# a single word\\
+\emph{output}: apple
+
+knitr::combine\_words(v{[}1:2{]}) \# two words\\
+\emph{output}: apple and banana
+
+knitr::combine\_words(LETTERS{[}1:5{]})\\
+\emph{output}: A, B, C, D, and E
+
+\hypertarget{formatting}{%
+\subsection{Formatting:}\label{formatting}}
+
+We will look at a small task of creating interesting presentations using
+R Markdown which would give us an overall review of the various
+formatting and other advanced features offered by R Markdown.
+
+\hypertarget{assignmentstake-home-task}{%
+\subsection{Assignments/Take Home
+Task:}\label{assignmentstake-home-task}}
+
+Create a PDF LaTex Beamer Presentation OR HTML Ioslides Presentation of
+about 7 - 10 slides in R Markdown. Please note that you are advised not
+to create a PowerPoint Presentation since that is already being
+discussed in the class.
+
+Thank You!
+
+\hypertarget{references}{%
+\subsection{References:}\label{references}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \url{https://bookdown.org/yihui/rmarkdown-cookbook}
+\item
+  \url{https://bookdown.org/yihui/rmarkdown/}
+\item
+  R Markdown Cheatsheets (shared in the Google Drive Folder)
+\end{enumerate}
+
+\end{document}

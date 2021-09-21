@@ -1,13 +1,15 @@
 ---
 title: "Markdown Tutorial"
 author:
-   - Arsh Kumbhat
-   - Vibha Rao
-   - Aditi Singh
-   - Jainil Dharmil Shah
-   - Revendranath T
+- Arsh Kumbhat
+- Vibha Rao
+- Aditi Singh
+- Jainil Dharmil Shah
+- Revendranath T
 date: "9/20/2021"
-output: pdf_document
+output:
+  word_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -132,7 +134,7 @@ Output formats in R Markdown can be broadly classified into two categories:
 - The function also has a few arguments that can customize the output.
 
 ### Examples:
-v <- c("apple", "banana", "cherry")
+v <- c("apple", "banana", "cherry","orange")
 knitr::combine_words(v)  
 *output* : apple, banana, and cherry
 
